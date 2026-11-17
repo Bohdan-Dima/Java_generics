@@ -1,8 +1,10 @@
 package Work;
 
-public class Box<K, V> {
+public class Box<K, V, F> {
 	private K key;
 	private V value;
+	private F numbers;
+	
 	public K getKey() {
 		return key;
 	}
@@ -15,10 +17,19 @@ public class Box<K, V> {
 	public void setValue(V value) {
 		this.value = value;
 	}
-	public Box(K key, V value) {
+	public F getNumbers() {
+		return numbers;
+	}
+	public void setNumbers(F numbers) {
+		this.numbers = numbers;
+	}
+	public Box(K key, V value, F numbers) {
 		super();
 		this.key = key;
 		this.value = value;
+		this.numbers = numbers;
 	}
+	
+	
 
 }
