@@ -1,35 +1,36 @@
 package Work;
 
-public class Box<K, V, F> {
-	private K key;
-	private V value;
-	private F numbers;
-	
-	public K getKey() {
-		return key;
+public class Box<T extends Number> {
+	private T[] array;
+
+	public Box(T... array) {
+		this.array = array;
 	}
-	public void setKey(K key) {
-		this.key = key;
+
+	public T[] getArray() {
+		return array;
 	}
-	public V getValue() {
-		return value;
+
+	public double avg() {
+		double result = 0;
+		for (T element : array) {
+			result += ((Number) element).doubleValue();
+		}
+		return result / array.length;
 	}
-	public void setValue(V value) {
-		this.value = value;
+
+	public int compare(Box<? extends Integer> another) {
+		if (avg() > another.avg()) {
+			return 1;
+		} else if (avg() == another.avg()) {
+			return 0;
+		} else {
+			return -1;
+		}
 	}
-	public F getNumbers() {
-		return numbers;
+
+	public void setArray(T[] array) {
+		this.array = array;
 	}
-	public void setNumbers(F numbers) {
-		this.numbers = numbers;
-	}
-	public Box(K key, V value, F numbers) {
-		super();
-		this.key = key;
-		this.value = value;
-		this.numbers = numbers;
-	}
-	
-	
 
 }
