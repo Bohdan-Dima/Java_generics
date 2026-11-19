@@ -2,15 +2,23 @@ package Work;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 class BoxTest {
 
 	@Test
 	public void textBox() {
-		Box<Integer> box = new Box<>(5, 10, 15);
-		Box<Integer> box2 = new Box<>(5, 10, 15);
-		assertEquals(0, box.compare(box2));
+		List<Integer> numbers = new ArrayList<>();
+		for (int i = 0; i < 10; i++) {
+			numbers.add(i);
+		}
+		List<Integer> numbers2 = new ArrayList<>();
+		Box.transfer(numbers, numbers2);
+		assertEquals(0, numbers.size());
+		assertEquals(10, numbers2.size());
 	}
 
 }

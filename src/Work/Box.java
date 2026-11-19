@@ -1,5 +1,7 @@
 package Work;
 
+import java.util.List;
+
 public class Box<T extends Number> {
 	private T[] array;
 
@@ -17,6 +19,15 @@ public class Box<T extends Number> {
 			result += ((Number) element).doubleValue();
 		}
 		return result / array.length;
+	}
+
+	public static <U> U getFirstElement(List<U> list) {
+		return list.get(0);
+	}
+
+	public static <U> void transfer(List<? extends U> src, List<? super U> dst) {
+		dst.addAll(src);
+		src.clear();
 	}
 
 	public int compare(Box<? extends Integer> another) {
