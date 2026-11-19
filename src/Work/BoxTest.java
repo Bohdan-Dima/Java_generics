@@ -8,14 +8,9 @@ class BoxTest {
 
 	@Test
 	public void textBox() {
-		Box<String, Integer, Float> box1 = new Box<>("String", 2, 3.5f);
-		Box<String, Integer, Float> box2 = new Box<>("String", 5, 6.5f);
-
-		Float result = box1.getValue() + box2.getValue()+box1.getNumbers()+box2.getNumbers();
-
-		int expented = 17;
-		assertEquals(expented, result);
-
+		Box<Integer> box = new Box<>(5, 10, 15);
+		Box<Integer> box2 = new Box<>(5, 10, 15);
+		assertEquals(0, box.compare(box2));
 	}
 
 }
